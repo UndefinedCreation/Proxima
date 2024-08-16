@@ -1,35 +1,43 @@
 plugins {
+    `java-library`
     java
     kotlin("jvm") version "1.9.22"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("com.undefinedcreation.runServer") version "0.0.1"
 }
 
-group = "com.undefined"
-version = "0.0.1"
+apply(plugin = "maven-publish")
+val versionVar = "0.5.81"
+val groupIdVar = "com.undefined"
+val artifactIdVar = "api"
 
-val minecraftVersion = "1.21"
+version = groupIdVar
 
-repositories {
-    mavenCentral()
-    maven {
-        name = "spigotmc-repo"
-        url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+allprojects {
+
+    apply(plugin = "java")
+    apply(plugin = "java-library")
+
+    group = groupIdVar
+    version = versionVar
+
+    repositories {
+        mavenCentral()
+        maven("https://repo.papermc.io/repository/maven-public/")
     }
-    maven {
-        name = "undefinedRepo"
-        url = uri("https://repo.undefinedcreation.com/repo")
+
+    dependencies {
+        implementation("org.json:json:20231013")
+        implementation("com.googlecode.json-simple:json-simple:1.1.1")
     }
-    maven("https://repo.codemc.io/repository/maven-snapshots/")
+
 }
-
 
 dependencies {
-
-    compileOnly("org.spigotmc:spigot-api:1.21-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
 
-    implementation("com.undefined:api:0.5.56:mapped")
+    implementation(project(":v1_21:", "reobf"))
+    implementation(project(":core"))
+    implementation(project(":implementation"))
 }
 
 tasks {
@@ -43,12 +51,6 @@ tasks {
 
     compileKotlin {
         kotlinOptions.jvmTarget = "21"
-    }
-
-    runServer {
-        mcVersion(minecraftVersion)
-
-        acceptMojangEula(true)
     }
 }
 
