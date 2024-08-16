@@ -13,7 +13,6 @@ val artifactIdVar = "api"
 version = groupIdVar
 
 allprojects {
-
     apply(plugin = "java")
     apply(plugin = "java-library")
 

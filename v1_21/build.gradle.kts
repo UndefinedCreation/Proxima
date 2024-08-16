@@ -1,6 +1,6 @@
 plugins {
-    id("io.papermc.paperweight.userdev") version "1.7.2"
     kotlin("jvm") version "1.9.22"
+    id("io.papermc.paperweight.userdev") version "1.7.2"
 }
 
 paperweight.reobfArtifactConfiguration = io.papermc.paperweight.userdev.ReobfArtifactConfiguration.REOBF_PRODUCTION
