@@ -1,9 +1,9 @@
-package com.undefined.proxima.implementation.factories.particle
+package com.undefined.proxima.implementation.registory.particle
 
 import org.bukkit.Particle
 import org.bukkit.entity.Player
 
-interface ParticleFactory {
+interface ParticleRegistory {
 
     fun <D> spawnParticle(
         player: Player,

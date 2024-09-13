@@ -1,10 +1,10 @@
-package com.undefined.proxima.implementation.factories.particle
+package com.undefined.proxima.implementation.registory.particle
 
 import com.undefined.proxima.v1_21.extensions.ParticleExtension
 import org.bukkit.Particle
 import org.bukkit.entity.Player
 
-class ParticleFactory1_21: ParticleFactory {
+class ParticleRegistory1_21: ParticleRegistory {
     override fun <D> spawnParticle(
         player: Player,
         type: Particle,
