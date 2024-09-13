@@ -1,6 +1,7 @@
 package com.undefined.proxima.implementation
 
 import com.undefined.proxima.implementation.enums.GameVersion
+import com.undefined.proxima.implementation.particle.ParticleComponent
 import com.undefined.proxima.implementation.particle.spawnProximaParticle
 import com.undefined.proxima.implementation.registory.ProximaRegistory
 import org.bukkit.Bukkit
